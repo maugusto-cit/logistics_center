@@ -1,21 +1,14 @@
 # --- configuring profile spring
 
-# spring:
-#   profiles:
-#     active: "test"
-
-# ------------------------------
-
-
 spring:
     profiles:
         active: test
     datasource:
-        url: jdbc:postgresql://localhost:5432/logistics_center
-        platform: POSTGRESQL
+        url: jdbc:${database_url}
+        platform: ${database_platform}
         driver-class-name: org.postgresql.Driver
-        username: cit
-        password: cit
+        username: ${database_username}
+        password: ${database_password}
     jpa:
         hibernate:
           ddl-auto: create-drop
