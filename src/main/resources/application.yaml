@@ -11,5 +11,6 @@ spring:
         password: ${database_password}
     jpa:
         hibernate:
-          ddl-auto: create-drop
+          #ddl-auto: create-drop
+          ddl-auto: update
         show-sql: true

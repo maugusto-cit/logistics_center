@@ -1,11 +1,11 @@
-package logistics_center.domain.wrappers;
+package br.com.cit.logistics_center.domain.wrappers;
 
 /**
  * Created by neto on 21/06/17.
  */
 public class Step {
 
-    private Long step;
+    private int step;
 
     private Long packageId;
 
@@ -13,11 +13,18 @@ public class Step {
 
     private String to;
 
-    public Long getStep() {
+    public Step (int step, Long packageId, String from, String to) {
+        this.step = step;
+        this.packageId = packageId;
+        this.from = from;
+        this.to = to;
+    }
+
+    public int getStep() {
         return step;
     }
 
-    public void setStep(Long step) {
+    public void setStep(int step) {
         this.step = step;
     }
 

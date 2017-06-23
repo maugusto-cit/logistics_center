@@ -1,6 +1,6 @@
-package logistics_center.repositories;
+package br.com.cit.logistics_center.repositories;
 
-import logistics_center.domain.entities.Delivery;
+import br.com.cit.logistics_center.domain.entities.Delivery;
 import org.springframework.data.repository.CrudRepository;
 
 /**

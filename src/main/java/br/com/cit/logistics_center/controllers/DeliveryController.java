@@ -1,16 +1,13 @@
-package logistics_center.controllers;
+package br.com.cit.logistics_center.controllers;
 
-import logistics_center.domain.entities.Delivery;
-import logistics_center.domain.wrappers.Step;
-import logistics_center.repositories.DeliveryRepository;
+import br.com.cit.logistics_center.domain.entities.Delivery;
+import br.com.cit.logistics_center.domain.wrappers.Step;
+import br.com.cit.logistics_center.repositories.DeliveryRepository;
+import br.com.cit.logistics_center.utils.Zone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +15,7 @@ import java.util.List;
  * Created by neto on 21/06/17.
  */
 
-@Controller
+@RestController
 public class DeliveryController {
 
     @Autowired
@@ -35,9 +32,14 @@ public class DeliveryController {
     @RequestMapping(value = "/delivery/{deliveryId}/step", method = RequestMethod.GET)
     public List<Step> steps(@PathVariable("deliveryId") Long deliveryId) {
 
-        //TODO: steps of delivery package. Implements logic and the steps.
+        Zone zone = new Zone();
+        List<Step> steps = null;
+        Delivery delivery = repository.findOne(deliveryId);
 
-        return null;
+        if (delivery != null)
+            steps = zone.stepsDelivery(delivery.getPackages());
+
+        return steps;
     }
 
 }

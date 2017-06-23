@@ -1,4 +1,4 @@
-package logistics_center.domain.entities;
+package br.com.cit.logistics_center.domain.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
