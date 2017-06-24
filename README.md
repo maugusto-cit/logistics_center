@@ -21,13 +21,6 @@ auxiliando o motorista em um passo-a-passo no abastecimento correto do caminhão
 * Postgres instalado (foi desenvolvido com postgres como database);
 * Banco de dados `logistics_center` criado;
 
-#### Passos para execução:
-`git clone https://github.com/joseslneto/logistics_center.git`
-
-* goto : `cd logistics-center`
-* build : `mvn install`
-* run : `mvn spring-boot:run`
-
 #### Variáveis de ambiente:
 Executar direto no terminal (ou incluir no .bashrc para não perder config. ao sair do terminal):
 
@@ -35,6 +28,15 @@ Executar direto no terminal (ou incluir no .bashrc para não perder config. ao s
 * `export database_platform="POSTGRES"`
 * `export database_username="cit"`
 * `export database_password="cit"`
+
+#### Passos para execução:
+Necessário variáveis de ambiente já criadas!
+
+`git clone https://github.com/joseslneto/logistics_center.git`
+
+* goto : `cd logistics-center`
+* build : `mvn install`
+* run : `mvn spring-boot:run`
 
 #### Documentação:
 ###### JAVADOC
