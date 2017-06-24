@@ -8,6 +8,7 @@ import br.com.cit.logistics_center.domain.wrappers.Step;
 import br.com.cit.logistics_center.repositories.DeliveryRepository;
 import br.com.cit.logistics_center.repositories.PackageRepository;
 import br.com.cit.logistics_center.utils.TransferZone;
+import org.jsondoc.core.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import java.util.List;
  * Listen the requisitions related a {@link Delivery} context.
  */
 @RestController
+@Api(description = "Persist delivery object and control all steps at the zone", name = "Delivery Controller")
 public class DeliveryController {
 
     private final DeliveryRepository repository;
@@ -42,6 +44,18 @@ public class DeliveryController {
      * @param delivery Delivery - Object that will be persisted.
      * @return ResponseEntity - HTTP Status.
      */
+    @ApiMethod(description = "Create a delivery")
+    @ApiErrors(apierrors = {
+            @ApiError(code = "409", description = "CONFLICT - Exists object persisted in database")
+    })
+    @ApiParams(queryparams = {
+            @ApiQueryParam(
+                    name = "delivery",
+                    description = "Delivery entity",
+                    clazz = Delivery.class
+            )
+    })
+    @ApiBodyObject(clazz = Delivery.class)
     @RequestMapping(value = "/delivery", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity create(@RequestBody() Delivery delivery) {
 
@@ -74,6 +88,18 @@ public class DeliveryController {
      * @param deliveryId Long - Id of delivery
      * @return List<Step> - List with all packages steps.
      */
+    @ApiMethod(description = "List all steps of packages from source to destination")
+    @ApiErrors(apierrors = {
+            @ApiError(code = "404", description = "NOT FOUND - Delivery not found in database.")
+    })
+    @ApiParams(pathparams = {
+            @ApiPathParam(
+                    name = "deliveryId",
+                    description = "Identifier of an delivery",
+                    clazz = Long.class
+            )
+    })
+    @ApiResponseObject(clazz = Step.class)
     @RequestMapping(value = "/delivery/{deliveryId}/step", method = RequestMethod.GET)
     public List<Step> steps(@PathVariable("deliveryId") Long deliveryId) {
 

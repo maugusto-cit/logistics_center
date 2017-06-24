@@ -14,3 +14,10 @@ spring:
           #ddl-auto: create-drop
           ddl-auto: update
         show-sql: true
+
+# --- configuring json doc
+
+jsondoc:
+  version: 1.0
+  basePath: http://localhost:8080/
+  packages: br.com.cit.logistics_center.controllers, br.com.cit.logistics_center.domain.entities, br.com.cit.logistics_center.domain.wrappers

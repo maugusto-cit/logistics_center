@@ -1,16 +1,24 @@
 package br.com.cit.logistics_center.domain.wrappers;
 
+import org.jsondoc.core.annotation.ApiObject;
+import org.jsondoc.core.annotation.ApiObjectField;
+
 /**
  * Created by neto on 21/06/17.
  */
+@ApiObject(name = "Step", description = "Step of package from source to destination")
 public class Step {
 
+    @ApiObjectField(description = "Number of step")
     private int step;
 
+    @ApiObjectField(description = "Package identificator")
     private Long packageId;
 
+    @ApiObjectField(description = "Source zone of a package")
     private String from;
 
+    @ApiObjectField(description = "Destination zone of a package")
     private String to;
 
     public Step (int step, Long packageId, String from, String to) {

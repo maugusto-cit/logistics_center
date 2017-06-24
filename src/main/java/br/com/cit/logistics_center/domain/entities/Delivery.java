@@ -1,5 +1,8 @@
 package br.com.cit.logistics_center.domain.entities;
 
+import org.jsondoc.core.annotation.ApiObject;
+import org.jsondoc.core.annotation.ApiObjectField;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -12,14 +15,17 @@ import java.util.List;
  * Delivery entity created on database.
  */
 @Entity(name = "deliveries")
+@ApiObject(name = "Delivery", description = "Delivery object")
 public class Delivery {
 
     @Id
     @Column(name = "id")
+    @ApiObjectField(description = "Delivery identificator")
     private Long deliveryId;
 
     @NotNull
     @Column(name = "id_vehicle")
+    @ApiObjectField(description = "Vehicle identificator")
     private Long vehicle;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

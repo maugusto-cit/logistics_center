@@ -1,5 +1,8 @@
 package br.com.cit.logistics_center.domain.entities;
 
+import org.jsondoc.core.annotation.ApiObject;
+import org.jsondoc.core.annotation.ApiObjectField;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
@@ -12,11 +15,14 @@ import javax.persistence.Transient;
  * Package entity created on database.
  */
 @Entity(name = "packages")
+@ApiObject(name = "Package", description = "Package of one delivery")
 public class Package implements Cloneable {
 
     @Id
+    @ApiObjectField(description = "Package identificator")
     private Long id;
 
+    @ApiObjectField(description = "Weight of package")
     private Double weight;
 
     @Transient
