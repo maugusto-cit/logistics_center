@@ -19,18 +19,22 @@ auxiliando o motorista em um passo-a-passo no abastecimento correto do caminhão
 #### Necessário:
 * Java 8+;
 * Postgres instalado (foi desenvolvido com postgres como database);
+* Banco de dados `logistics_center` criado;
 
 #### Passos para execução:
 `git clone https://github.com/joseslneto/logistics_center.git`
 
-#### Variáveis de ambiente:
-Incluir em `/etc/environment`
+* goto : `cd logistics-center`
+* build : `mvn install`
+* run : `mvn spring-boot:run`
 
-* `database_url` = `postgresql://localhost:5432/logistics_center`
-* `database_platform` = `POSTGRES`
-* `database_username` = `cit`
-* `database_password` = `cit`
-* `host_api_doc` = `http://localhost:8080`
+#### Variáveis de ambiente:
+Executar direto no terminal (ou incluir no .bashrc para não perder config. ao sair do terminal):
+
+* `export database_url="postgresql://localhost:5432/logistics_center"`
+* `export database_platform="POSTGRES"`
+* `export database_username="cit"`
+* `export database_password="cit"`
 
 #### Documentação:
 ###### JAVADOC
