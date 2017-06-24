@@ -7,8 +7,19 @@ import java.util.Comparator;
 /**
  * Created by neto on 22/06/17.
  */
+
+/**
+ * Compare two packages
+ */
 public class ComparatorPackage implements Comparator<Package> {
 
+    /**
+     * Compares the weight of two packages.
+     *
+     * @param aPackage Package - First package.
+     * @param bPackage Package - Second package.
+     * @return int - Number to use on order method.
+     */
     @Override
     public int compare(Package aPackage, Package bPackage) {
 

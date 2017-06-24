@@ -9,7 +9,11 @@ import java.util.*;
 /**
  * Created by neto on 22/06/17.
  */
-public class Zone {
+
+/**
+ * Responsible for the transfer of the packages between the zones.
+ */
+public class TransferZone {
 
     private List<Step> steps = new ArrayList<Step>();
 
@@ -20,6 +24,12 @@ public class Zone {
 
     private int idStep = 1;
 
+    /**
+     * Start of hanoi solution
+     *
+     * @param packages List<Package> - Packets that will pass at the zones
+     * @return List<Step> - List with all packages steps.
+     */
     public List<Step> stepsDelivery(List<Package> packages) {
 
         // First step: Sort packages.
@@ -41,6 +51,9 @@ public class Zone {
         return this.steps;
     }
 
+    /**
+     * Descending order of packages by weight
+     */
     private void sortPackages() {
 
         ComparatorPackage comparator = new ComparatorPackage();
@@ -56,6 +69,9 @@ public class Zone {
             packageIndex.indexArray = i++;
     }
 
+    /**
+     * Hanoi Algorithm
+     */
     private void recursiveSteps(Package pack, Stack<Package> source, Stack<Package> destination, Stack<Package> aux) {
 
         if (pack.indexArray == this.packagesOrdered.length - 1) {
@@ -69,6 +85,12 @@ public class Zone {
         }
     }
 
+    /**
+     * Describes a name of current zone.
+     *
+     * @param zone Stack<Package> - Current zone.
+     * @return String - Name of the current zone.
+     */
     private String namedZone(Stack<Package> zone) {
 
         if (zone.equals(this.a))

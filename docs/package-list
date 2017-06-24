@@ -1,0 +1,8 @@
+br.com.cit.logistics_center
+br.com.cit.logistics_center.controllers
+br.com.cit.logistics_center.domain.comparators
+br.com.cit.logistics_center.domain.entities
+br.com.cit.logistics_center.domain.exceptions
+br.com.cit.logistics_center.domain.wrappers
+br.com.cit.logistics_center.repositories
+br.com.cit.logistics_center.utils

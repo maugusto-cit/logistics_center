@@ -8,6 +8,9 @@ import javax.persistence.Transient;
  * Created by neto on 21/06/17.
  */
 
+/**
+ * Package entity created on database.
+ */
 @Entity(name = "packages")
 public class Package implements Cloneable {
 

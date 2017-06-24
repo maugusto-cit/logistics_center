@@ -8,6 +8,9 @@ import java.util.List;
  * Created by neto on 21/06/17.
  */
 
+/**
+ * Delivery entity created on database.
+ */
 @Entity(name = "deliveries")
 public class Delivery {
 
