@@ -23,6 +23,9 @@ public class Application {
      * First method executed in the application.
      */
     public static void main(String[] args) throws Exception {
+        
+        System.out.println(System.getenv("database_url"));
+        
         SpringApplication.run(Application.class, args);
     }
 }
